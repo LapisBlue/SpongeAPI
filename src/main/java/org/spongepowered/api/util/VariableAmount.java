@@ -125,11 +125,6 @@ public abstract class VariableAmount {
         return (int) Math.floor(getAmount(rand));
     }
 
-    @Override
-    public String toString() {
-        return "a varying amount";
-    }
-
     /**
      * Represents a fixed amount, calls to {@link #getAmount} will always return
      * the same fixed value.
@@ -148,11 +143,16 @@ public abstract class VariableAmount {
         }
 
         @Override
+        public String toString() {
+            return Objects.toStringHelper(this).add("amount", this.amount).toString();
+        }
+
+        @Override
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || getClass() != obj.getClass()) {
+            if (!(obj instanceof Fixed)) {
                 return false;
             }
             Fixed amount = (Fixed) obj;
@@ -161,8 +161,11 @@ public abstract class VariableAmount {
 
         @Override
         public int hashCode() {
-            return Objects.hashCode(this.amount);
+            int result = 1;
+            result = 37 * result + (int) (Double.doubleToLongBits(this.amount) ^ (Double.doubleToLongBits(this.amount) >> 32));
+            return result;
         }
+
     }
 
     /**
@@ -186,11 +189,16 @@ public abstract class VariableAmount {
         }
 
         @Override
+        public String toString() {
+            return Objects.toStringHelper(this).add("base", this.base).add("variance", this.variance).toString();
+        }
+
+        @Override
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || getClass() != obj.getClass()) {
+            if (!(obj instanceof BaseAndVariance)) {
                 return false;
             }
             BaseAndVariance amount = (BaseAndVariance) obj;
@@ -199,8 +207,12 @@ public abstract class VariableAmount {
 
         @Override
         public int hashCode() {
-            return Objects.hashCode(this.base, this.variance);
+            int result = 1;
+            result = 37 * result + (int) (Double.doubleToLongBits(this.base) ^ (Double.doubleToLongBits(this.base) >> 32));
+            result = 37 * result + (int) (Double.doubleToLongBits(this.variance) ^ (Double.doubleToLongBits(this.variance) >> 32));
+            return result;
         }
+
     }
 
     /**
@@ -236,11 +248,16 @@ public abstract class VariableAmount {
         }
 
         @Override
+        public String toString() {
+            return Objects.toStringHelper(this).add("base", this.base).add("chance", this.chance).add("inner", this.inner).toString();
+        }
+
+        @Override
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            if (obj == null || getClass() != obj.getClass()) {
+            if (!(obj instanceof OptionalAmount)) {
                 return false;
             }
             OptionalAmount amount = (OptionalAmount) obj;
@@ -249,8 +266,13 @@ public abstract class VariableAmount {
 
         @Override
         public int hashCode() {
-            return Objects.hashCode(this.inner, this.chance, this.base);
+            int result = 1;
+            result = 37 * result + (int) (Double.doubleToLongBits(this.base) ^ (Double.doubleToLongBits(this.base) >> 32));
+            result = 37 * result + (int) (Double.doubleToLongBits(this.chance) ^ (Double.doubleToLongBits(this.chance) >> 32));
+            result = 37 * result + this.inner.hashCode();
+            return result;
         }
+
     }
 
 }

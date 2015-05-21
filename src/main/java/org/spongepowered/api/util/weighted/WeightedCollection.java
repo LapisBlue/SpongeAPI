@@ -26,14 +26,12 @@ package org.spongepowered.api.util.weighted;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import com.google.common.base.Objects;
-import com.google.common.collect.Lists;
-
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Random;
+
+import com.google.common.collect.Lists;
 
 /**
  * Represents a mutable collection of weighted objects. This collection is not
@@ -165,26 +163,22 @@ public class WeightedCollection<T extends WeightedObject<?>> implements Collecti
         return this.objects.toArray(array);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(this.objects, this.totalWeight);
-    }
-
-    @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
+        if (obj == this) {
             return true;
         }
-        ListIterator<T> element = this.objects.listIterator();
-        ListIterator<?> otherElement = ((List<?>) obj).listIterator();
-        while (element.hasNext() && otherElement.hasNext()) {
-            T thisElement = element.next();
-            Object otherObject = otherElement.next();
-            if (!(thisElement == null ? otherObject == null : thisElement.equals(otherObject))) {
-                return false;
-            }
+        if (!(obj instanceof WeightedCollection)) {
+            return false;
         }
-        return !(element.hasNext() || otherElement.hasNext());
+        WeightedCollection<?> wc = (WeightedCollection<?>) obj;
+        return this.objects.equals(wc.objects);
+    }
+    
+    @Override
+    public int hashCode() {
+        int result = 1;
+        result = 37 * result + this.objects.hashCode();
+        return result;
     }
 
     /**
