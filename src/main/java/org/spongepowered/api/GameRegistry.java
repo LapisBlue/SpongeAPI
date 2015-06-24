@@ -63,6 +63,8 @@ import org.spongepowered.api.util.rotation.Rotation;
 import org.spongepowered.api.world.World;
 import org.spongepowered.api.world.WorldBuilder;
 import org.spongepowered.api.world.WorldCreationSettings;
+import org.spongepowered.api.world.biome.BiomeGenerationSettings;
+import org.spongepowered.api.world.biome.BiomeGenerationSettingsBuilder;
 import org.spongepowered.api.world.gen.GeneratorPopulator;
 import org.spongepowered.api.world.gen.Populator;
 import org.spongepowered.api.world.gen.PopulatorFactory;
@@ -481,4 +483,12 @@ public interface GameRegistry {
      * @return The {@link Translation} with the given ID or Optional.absent() if not found
      */
     Optional<Translation> getTranslationById(String id);
+
+    /**
+     * Gets a new {@link BiomeGenerationSettingsBuilder} for creating new
+     * {@link BiomeGenerationSettings}.
+     * 
+     * @return A new BiomeGenerationSettings builder
+     */
+    BiomeGenerationSettingsBuilder getBiomeGenerationSettingsBuilder();
 }
