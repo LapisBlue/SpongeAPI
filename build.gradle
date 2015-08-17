@@ -46,7 +46,3 @@ task sourceJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
 }
-
-artifacts {
-    archives sourceJar
-}
