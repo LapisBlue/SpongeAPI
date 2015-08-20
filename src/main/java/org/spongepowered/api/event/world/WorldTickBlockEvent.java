@@ -22,11 +22,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.api.event.block;
+package org.spongepowered.api.event.world;
 
 import org.spongepowered.api.block.BlockState;
 import org.spongepowered.api.event.Cancellable;
-import org.spongepowered.api.event.world.WorldEvent;
 import org.spongepowered.api.world.Location;
 import org.spongepowered.api.world.World;
 
@@ -40,7 +39,7 @@ public interface WorldTickBlockEvent extends WorldEvent, Cancellable {
      *
      * @return The location
      */
-    Location getTargetLocation();
+    Location<World> getTargetLocation();
 
     /**
      * Gets the target {@link BlockState} being updated.

@@ -22,10 +22,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.api.event.block;
+package org.spongepowered.api.event.world;
+
+import org.spongepowered.api.event.action.ChangeBlockEvent;
 
 /**
- * Called when a block is about to be changed because it would have
+ * Called when a {@link World} is about to grow a block because it would have
  * resulted from some form of growth related to flora.
  *
  * <p>Examples of reasons why this event would be called include:</p>
@@ -36,6 +38,6 @@ package org.spongepowered.api.event.block;
  *     <li>The change in state of a wheat block because it grew.</li>
  * </ul>
  */
-public interface FloraGrowEvent extends BlockChangeEvent {
+public interface WorldGrowBlockEvent extends ChangeBlockEvent, WorldEvent {
 
 }

@@ -22,11 +22,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.api.event.block;
+package org.spongepowered.api.event.world;
+
+import org.spongepowered.api.event.action.ChangeBlockEvent;
 
 /**
- * Called when a leaf block is about to decay.
+ * Called when a world is about to decay a block.
  */
-public interface LeafDecayEvent extends BlockChangeEvent {
+public interface WorldDecayBlockEvent extends ChangeBlockEvent, WorldEvent {
 
 }
