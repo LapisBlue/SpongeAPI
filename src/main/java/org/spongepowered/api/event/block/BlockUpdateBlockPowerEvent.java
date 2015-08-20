@@ -39,20 +39,20 @@ public interface BlockUpdateBlockPowerEvent extends BlockUpdateNeighborBlockEven
      *
      * @return The old signal strength
      */
-    int getOldSignalStrength();
+    int getOriginalSignalStrength();
 
     /**
      * Gets the signal strength that the {@link BlockState} will be at after event resolution.
      *
      * @return The new signal strength
      */
-    int getNewSignalStrength();
+    int getSignalStrength();
 
     /**
      * Sets the signal strength that the {@link BlockState} will be at after event resolution.
      *
      * @param newSignalStrength The new signal strength.
      */
-    void setNewSignalStrength(int newSignalStrength);
+    void setSignalStrength(int newSignalStrength);
 
 }

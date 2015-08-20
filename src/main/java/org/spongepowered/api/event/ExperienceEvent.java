@@ -31,7 +31,7 @@ public interface ExperienceEvent extends Event {
 
     /**
      * Gets the original experience unmodified by event changes.
-     * 
+     *
      * @return The experience
      */
     int getOriginalExperience();
