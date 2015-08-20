@@ -22,14 +22,36 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.api.event;
+package org.spongepowered.api.event.action;
 
+import com.google.common.base.Optional;
 import org.spongepowered.api.block.BlockState;
+import org.spongepowered.api.event.InteractEvent;
+import org.spongepowered.api.util.Direction;
 import org.spongepowered.api.world.Location;
 
 /**
- * Base event for all "attack" interactions involving a {@link BlockState} at a {@link Location}.
+ * Base event for all interactions involving a {@link BlockState} at a {@link Location}.
  */
-public interface AttackBlockEvent extends InteractBlockEvent {
+public interface InteractBlockEvent extends InteractEvent {
 
+    /**
+     * Gets the target {@link Location} being interacted with.
+     * @return The location
+     */
+    Location getTargetLocation();
+
+    /**
+     * Gets the target {@link BlockState} being interacted with.
+     * @return The block state
+     */
+    BlockState getTargetBlock();
+
+    /**
+     * Gets the target "side" of the {@link BlockState} being interacted with or {@link Optional#absent()}
+     * if not known.
+     *
+     * @return An optional containing the side being interacted with or {@link Optional#absent()} if not known
+     */
+    Optional<Direction> getTargetSide();
 }

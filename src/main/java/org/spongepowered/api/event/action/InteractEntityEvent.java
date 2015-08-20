@@ -22,13 +22,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.api.event;
+package org.spongepowered.api.event.action;
 
 import org.spongepowered.api.entity.Entity;
+import org.spongepowered.api.event.InteractEvent;
 
 /**
- * Base event for all "use" interactions targeting an {@link Entity}.
+ * Base event for all interactions targeting an {@link Entity}.
  */
-public interface UseEntityEvent extends InteractEntityEvent {
+public interface InteractEntityEvent extends InteractEvent {
 
+    /**
+     * Gets the target {@link Entity}.
+     *
+     * @return The entity
+     */
+    Entity getTarget();
 }
