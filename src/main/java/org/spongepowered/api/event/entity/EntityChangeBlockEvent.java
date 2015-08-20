@@ -22,17 +22,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.api.event.weather;
+package org.spongepowered.api.event.entity;
 
-import org.spongepowered.api.entity.weather.Lightning;
-import org.spongepowered.api.event.entity.EntitySpawnEvent;
+import org.spongepowered.api.block.BlockState;
+import org.spongepowered.api.entity.Entity;
+import org.spongepowered.api.event.action.ChangeBlockEvent;
+import org.spongepowered.api.world.Location;
+import org.spongepowered.api.world.World;
 
 /**
- * Called when a {@link Lightning} is spawned.
+ * Base event for when an {@link Entity} is changing {@link BlockState}s at {@link Location<World>}s.
  */
-public interface LightningStrikeEvent extends EntitySpawnEvent, BulkBlockEvent, BulkEntityEvent {
-
-    @Override
-    Lightning getEntity();
+public interface EntityChangeBlockEvent extends EntityEvent, ChangeBlockEvent {
 
 }

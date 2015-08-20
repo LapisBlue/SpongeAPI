@@ -22,14 +22,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package org.spongepowered.api.event.block;
+package org.spongepowered.api.event.action;
 
+import org.spongepowered.api.block.BlockState;
 import org.spongepowered.api.world.Location;
+import org.spongepowered.api.world.World;
 
 /**
- * Dispatched when a {@link Location} is in the process of being placed, before
- * the placement has been made.
+ * Base event for when {@link BlockState}s at {@link Location< World >}s are being placed.
  */
-public interface BlockPlaceEvent extends BlockChangeEvent {
+public interface PlaceBlockEvent extends ChangeBlockEvent {
 
 }

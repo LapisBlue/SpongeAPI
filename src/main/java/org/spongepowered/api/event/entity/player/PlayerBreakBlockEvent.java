@@ -26,6 +26,6 @@ package org.spongepowered.api.event.entity.player;
 
 import org.spongepowered.api.event.entity.living.human.HumanBreakBlockEvent;
 
-public interface PlayerBreakBlockEvent extends PlayerEvent, HumanBreakBlockEvent {
+public interface PlayerBreakBlockEvent extends PlayerChangeBlockEvent, HumanBreakBlockEvent {
 
 }

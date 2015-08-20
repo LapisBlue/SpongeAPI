@@ -24,65 +24,13 @@
  */
 package org.spongepowered.api.event.action;
 
-import org.spongepowered.api.block.BlockSnapshot;
 import org.spongepowered.api.block.BlockState;
-import org.spongepowered.api.block.BlockTypes;
-import org.spongepowered.api.event.Cancellable;
-import org.spongepowered.api.event.GameEvent;
 import org.spongepowered.api.world.Location;
+import org.spongepowered.api.world.World;
 
 /**
- * Base events for when a target {@link BlockState} at a {@link Location} is broken.
+ * Base event for when {@link BlockState}s at {@link Location< World >}s are being broke.
  */
-public interface BreakBlockEvent extends GameEvent, Cancellable {
-
-    /**
-     * Gets the target {@link Location} being broken.
-     *
-     * @return The Location
-     */
-    Location getTargetLocation();
-
-    /**
-     * Gets the target {@link BlockState} being broken.
-     *
-     * @return The BlockState
-     */
-    BlockState getTargetBlock();
-
-    /**
-     * Gets the original {@link BlockState} that will replace the BlockState at {@link BreakBlockEvent#getTargetLocation()}
-     * un-affected by event changes.
-     *
-     * <p>
-     *     Typically this will be a BlockState whose {@link BlockState#getType()} returns {@link BlockTypes#AIR}.
-     * </p>
-     *
-     * @return The original replacement BlockState
-     */
-    BlockState getOriginalReplacementBlock();
-
-    /**
-     * Gets the {@link BlockState} that will replace the BlockState at {@link BreakBlockEvent#getTargetLocation()}
-     * after event resolution.
-     *
-     * <p>
-     *     Typically this will be a BlockState whose {@link BlockState#getType()} returns {@link BlockTypes#AIR}.
-     * </p>
-     *
-     * @return The replacement BlockState
-     */
-    BlockState getReplacementBlock();
-
-    /**
-     * Sets the {@link BlockState} that will replace the BlockState at {@link BreakBlockEvent#getTargetLocation()}
-     * after event resolution.
-     *
-     * <p>
-     *     This will also set the {@link BlockSnapshot} that will be returned in
-     * </p>
-     * @param block The BlockState that will replace the broken one
-     */
-    void setReplacementBlock(BlockState block);
+public interface BreakBlockEvent extends ChangeBlockEvent {
 
 }

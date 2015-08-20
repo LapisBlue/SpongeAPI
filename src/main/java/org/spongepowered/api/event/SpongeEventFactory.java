@@ -61,7 +61,6 @@ import org.spongepowered.api.event.block.BlockHarvestEvent;
 import org.spongepowered.api.event.block.BlockIgniteEvent;
 import org.spongepowered.api.event.block.BlockInteractEvent;
 import org.spongepowered.api.event.block.BlockMoveEvent;
-import org.spongepowered.api.event.block.BlockPlaceEvent;
 import org.spongepowered.api.event.block.BlockRandomTickEvent;
 import org.spongepowered.api.event.block.BlockRedstoneUpdateEvent;
 import org.spongepowered.api.event.block.BlockUpdateEvent;

@@ -26,6 +26,6 @@ package org.spongepowered.api.event.entity.living.human;
 
 import org.spongepowered.api.event.entity.living.LivingBreakBlockEvent;
 
-public interface HumanBreakBlockEvent extends HumanEvent, LivingBreakBlockEvent {
+public interface HumanBreakBlockEvent extends HumanChangeBlockEvent, LivingBreakBlockEvent {
 
 }
