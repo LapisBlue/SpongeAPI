@@ -24,12 +24,15 @@
  */
 package org.spongepowered.api.event.action;
 
-import org.spongepowered.api.block.BlockState;
+import org.spongepowered.api.event.Cancellable;
+import org.spongepowered.api.event.GameEvent;
+import org.spongepowered.api.event.cause.CauseTracked;
+
+import org.spongepowered.api.world.World;
 
 /**
- * Base event for when {@link BlockState}s at {@link Location< World >}s are 
- * being broke.
+ * Called when a @link World} unloads.
  */
-public interface BreakBlockEvent extends HarvestBlockEvent, ChangeBlockEvent {
+public interface UnloadWorldEvent extends GameEvent, CauseTracked, Cancellable {
 
 }
