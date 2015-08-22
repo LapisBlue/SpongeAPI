@@ -25,11 +25,12 @@
 package org.spongepowered.api.event.action;
 
 import org.spongepowered.api.block.BlockState;
+import org.spongepowered.api.world.Location;
 
 /**
- * Base event for when {@link BlockState}s at {@link Location< World >}s are 
+ * Base event for when {@link BlockState}s at {@link Location <World>}s are
  * being broke.
  */
-public interface BreakBlockEvent extends HarvestBlockEvent, ChangeBlockEvent {
+public interface BreakBlockEvent extends ChangeBlockEvent {
 
 }
